@@ -1,5 +1,11 @@
+import Header from './Header';
+
 function App() {
-  return <h1>Lotion</h1>;
-}
+  return (
+    <>
+      <Header />
+    </>
+  );
+};
 
 export default App;
