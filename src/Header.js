@@ -1,7 +1,7 @@
 function Header() {
     return (
       <header class = "flexBox">
-        <div id = "divMenu"><button class = "menu">&#9776;</button></div>
+        <div class = "divLeft"><button class = "menu, hoverChange">&#9776;</button></div>
         <div>
           <div>
             <h1>Lotion</h1>

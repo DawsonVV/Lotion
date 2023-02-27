@@ -3,12 +3,16 @@ header{
   align-items: center;
   font-size: 2vh;
   display: flex;
-  max-height: 100px;
-  height: 4rem;
+  height: 6vh;
+  min-height: 50px;
 }
 
-#divMenu{
+.divLeft{
   text-align: left;
+}
+
+.divRight{
+  text-align: right;
 }
 
 header button{
@@ -32,4 +36,107 @@ header h3{
   font-size:10px;
   margin: 0;
   padding:0;
+}
+
+#NotesElements{
+  display: flex;
+  flex-direction: column;
+}
+
+#NotesElements div{
+  width:100%;
+}
+
+.rowFlex{
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height:92vh;
+}
+.rowFlex div{
+  align-items: center;
+}
+#flexChange{
+  flex:0.3;
+}
+
+#typeIn{
+  width: 100%;
+  height:100%;
+}
+
+
+.rowFlex div button{
+  background-color: transparent;
+  border: none;
+  font-size: x-large;
+}
+
+#Typetext{
+  height: 100vh;
+  display:flex;
+  align-items:stretch;
+  flex-direction: column;
+}
+
+#notes{
+  max-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#subject{
+  flex:0.05;
+  min-height: 50px;
+  display:flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+#subject div{
+  height:100%;
+  align-items:center;
+}
+
+.subjecthead{
+  width: 60%;
+  flex:1;
+  
+}
+
+.subjectButton{
+  width: 20%;
+  flex:0.1;
+
+}
+
+#subject div button{
+  background-color: transparent;
+  font-size: small;
+  height:100%;
+  width: 100%;
+}
+
+button{
+  width: 100%;
+  height: 100%;
+}
+
+.subjectButton:hover{
+  background-color: black;
+  color: white;
+}
+
+.hoverChange:hover{
+  background-color: black;
+  color: white;
+}
+
+#body{
+  flex:1;
 }
