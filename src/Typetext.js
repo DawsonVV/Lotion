@@ -7,12 +7,15 @@ function Typetext() {
 
   return (
     <div id = "Typetext">
-        <div id = "subject">
-            <div class = "subjecthead">hehe</div>
-            <div class = "subjectButton"><button class = "hoverChange">Save</button></div>
-            <div class = "subjectButton"><button class = "hoverChange">Delete</button></div>
-        </div>
-        <div d = "body"><ReactQuill theme="snow" value={value} onChange={setValue} defaultValue = "Your Note Here"/></div>
+      <div id = "subject">
+          <div id = "subjecthead">
+            <input id = "userInputSubject"></input>
+            <input type="datetime-local" />
+            </div>
+          <div className = "subjectButton"><button className = "hoverChange">Save</button></div>
+          <div className = "subjectButton"><button className = "hoverChange">Delete</button></div>
+      </div>
+      <ReactQuill theme="snow" value={value} onChange={setValue} defaultValue = "Your Note Here"/>
     </div>
   );
 }

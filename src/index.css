@@ -7,12 +7,21 @@ header{
   min-height: 50px;
 }
 
+menu{
+  height: 100%;
+  width:10px;
+}
+
 .divLeft{
   text-align: left;
+  align-items: center;
+  height: 100%;
 }
 
 .divRight{
   text-align: right;
+  align-items: center;
+  height: 100%;
 }
 
 header button{
@@ -41,6 +50,7 @@ header h3{
 #NotesElements{
   display: flex;
   flex-direction: column;
+  width:100%;
 }
 
 #NotesElements div{
@@ -56,18 +66,23 @@ header h3{
   height:92vh;
 }
 .rowFlex div{
-  align-items: center;
+  display:flex;
 }
 #flexChange{
   flex:0.3;
 }
 
 #typeIn{
+  flex:1;
   width: 100%;
   height:100%;
+  display:flex;
 }
 
-
+.quill {
+  display: flex;
+  flex-direction: column;
+}
 .rowFlex div button{
   background-color: transparent;
   border: none;
@@ -76,6 +91,7 @@ header h3{
 
 #Typetext{
   height: 100vh;
+  width: 100%;
   display:flex;
   align-items:stretch;
   flex-direction: column;
@@ -83,6 +99,7 @@ header h3{
 
 #notes{
   max-height: 10vh;
+  width:100%;
   display: flex;
   flex-direction: row;
   align-items:center;
@@ -103,10 +120,16 @@ header h3{
   align-items:center;
 }
 
-.subjecthead{
+#subjecthead{
   width: 60%;
   flex:1;
-  
+  display:flex;
+  flex-direction: column;
+}
+
+#subjecthead input{
+  width:100%;
+  border:0px
 }
 
 .subjectButton{
@@ -119,11 +142,9 @@ header h3{
   background-color: transparent;
   font-size: small;
   height:100%;
-  width: 100%;
 }
 
 button{
-  width: 100%;
   height: 100%;
 }
 
@@ -137,6 +158,19 @@ button{
   color: white;
 }
 
-#body{
+.quill{
+  width:100%;
+  height:100%;
+}
+
+#noNote{
   flex:1;
+  width:500px;
+  height:100%;
+  text-align: center;
+}
+
+#noNote p{
+  width:100%;
+  height:100%;
 }
