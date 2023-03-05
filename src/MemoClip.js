@@ -1,6 +1,11 @@
-function MemoClip() {
+import React from 'react';
+
+function MemoClip(props) {
     return (
-      <div>helloWorld</div>
+      <div className = "singleNote" id = {props.id}>
+        <div>{props.subject}</div>
+        <div>{props.body}</div>
+      </div>
     );
   }
   

@@ -5,19 +5,18 @@ import Typetext from './Typetext';
 
 function App() {
   const[notesBar, setNotesBar] = useState(true);
-  const[dataStore, setDataStore] = useState(0);
-
+  const[infoList, setInfoList] = useState([]);
   return (
     <>
       <Header setNotesBar = {setNotesBar} />
       <div className = "rowFlex">
         {notesBar &&(
-        <div id = "flexChange"><Notes setDataStore = {setDataStore} /></div>)}
-        {!dataStore &&(
+        <div id = "flexChange"><Notes setInfoList = {setInfoList} infoList = {infoList}/></div>)}
+        {(infoList.length == 0) &&( 
         <div id = "noNote">
           <p>Select a note, or create a new one.</p>
         </div>)}
-        {Boolean(dataStore) &&(
+        {(infoList.length > 0) &&(
         <div id = "typeIn"><Typetext /></div>)}
       </div>
     </>
