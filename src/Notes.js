@@ -4,17 +4,15 @@ import MemoClip from './MemoClip';
 
 function Notes(props) {
   const plusBut = () =>{
+    let tempString = uuid();
     props.setInfoList(prev => {
       return [...prev, {
-      "id": uuid(),
+      "id": tempString,
       "subject":"Untitled",
       "body":"...",
-      "year":"",
-      "month":"",
-      "day":"",
-      "hour":"",
-      "minute":"",}]
-    })
+      "date":""}]
+    });
+    props.setMemoOn(tempString);
   }
 
   return (
@@ -22,10 +20,12 @@ function Notes(props) {
       <div id = "notes">
         <div className = "divLeft"><h2>Notes</h2></div>
         <div className = "divRight"><button onClick = {plusBut} className = "hoverChange">+</button></div>
-      </div> 
-      {props.infoList.map(info => (
-        <MemoClip key = {info.id} id = {info.id} subject = {info.subject} body = {info.body}/>
-      ))}
+      </div > 
+      <div id = "memos">
+        {props.infoList.map(info => (
+          <MemoClip key = {info.id} id = {info.id} subject = {info.subject} body = {info.body} setMemoOn = {props.setMemoOn} memoOn = {props.memoOn}/>
+        ))}
+      </div>
     </div>
   );
   }

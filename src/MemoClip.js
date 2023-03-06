@@ -1,13 +1,21 @@
 import React from 'react';
 
 function MemoClip(props) {
-    return (
-      <div className = "singleNote" id = {props.id}>
-        <div>{props.subject}</div>
-        <div>{props.body}</div>
-      </div>
-    );
+  const memoClick = () =>{
+    props.setMemoOn(props.id);
   }
+  var nameOfClass = "singleNote"
+  if (props.id === props.memoOn){
+    nameOfClass += ", colouredMemo"
+  }
+
+  return (
+    <div className = {nameOfClass} onClick = {memoClick} id = {props.id}>
+      <div>{props.subject.replace(/<[^>]*>?/gm, '')}</div>
+      <div>{props.body.replace(/<[^>]*>?/gm, '')}</div>
+    </div>
+  );
+}
   
   export default MemoClip;
   
