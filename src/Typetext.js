@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
+import { useNavigate, useOutletContext } from "react-router-dom";
 import 'react-quill/dist/quill.snow.css';
 
-function Typetext(props) {
-  var Current = props.infoList.find((info) => info.id === props.memoOn);
-  const [openEditor, setOpenEditor] = useState(Current.edit)
+function Typetext() {
+  const[infoList,setInfoList] = useOutletContext()[0];
+  const[memoOn, setMemoOn] = useOutletContext()[1];
+  var Current = infoList.find((info) => info.id === memoOn);
+  var indexOf = infoList.findIndex((info) => info.id === memoOn);
   const [body, setBody] = useState(Current.body); 
   const [date, setDate] = useState(Current.date)
   const [subject, setSubject] = useState(Current.subject); 
 
+  const Navigate = useNavigate();
+
   const onDelete = () =>{
     const answer = window.confirm("Are you sure?");
-    console.log(props.memoOn)
     if (answer) {
-      props.setInfoList(props.infoList.filter(info=>info.id != props.memoOn));
-      props.setMemoOn("");
+      setInfoList(infoList.filter(info=>info.id != memoOn));
+      if(infoList.length == 1){
+        setMemoOn("");
+      }else if (indexOf == infoList.length-1){
+        setMemoOn(infoList[indexOf-1].id);
+      }else{
+        setMemoOn(infoList[indexOf+1].id);
+      }
+      localStorage.setItem('myLotionLocalStorage', JSON.stringify(infoList.filter(info=>info.id != memoOn)));
     }
   }
 
@@ -35,49 +46,26 @@ const formatDate = (when) => {
 };
 
   const onSave = () =>{
-    console.log(subject);
-    console.log(Current.subject);
-    Current.edit = false;
-    setOpenEditor(false);
     Current.body = body;
     Current.subject = subject;
     Current.date = date;
-    localStorage.setItem('myLotionLocalStorage', JSON.stringify(props.infoList));
-  }
-  const onEdit = () =>{
-    Current.edit = true;
-    setOpenEditor(true)
+    localStorage.setItem('myLotionLocalStorage', JSON.stringify(infoList));
+    Navigate(`/${indexOf + 1}/ViewText`, { replace: true });
   }
 
-  if(openEditor){
-    return (
-      <div id = "Typetext">
-        <div id = "subject">
-            <div id = "subjecthead">
-              <input id = "userInputSubject" type="text" value= {subject} onChange={(e) => setSubject(e.target.value)}/>
-              <input id = "dateTime" type="datetime-local" value = {date} onChange={(e) => setDate(e.target.value)}/>
-            </div>
-            <div className = "subjectButton"><button className = "hoverChange" onClick = {onSave}>Save</button></div>
-            <div className = "subjectButton"><button className = "hoverChange" onClick = {onDelete}>Delete</button></div>
-        </div>
-        <ReactQuill theme="snow" className = "quill" value={body} onChange={setBody}/>
+  return (
+    <div id = "Typetext">
+      <div id = "subject">
+          <div id = "subjecthead">
+            <input id = "userInputSubject" type="text" value= {subject} onChange={(e) => setSubject(e.target.value)}/>
+            <input id = "dateTime" type="datetime-local" value = {date} onChange={(e) => setDate(e.target.value)}/>
+          </div>
+          <div className = "subjectButton"><button className = "hoverChange" onClick = {onSave}>Save</button></div>
+          <div className = "subjectButton"><button className = "hoverChange" onClick = {onDelete}>Delete</button></div>
       </div>
-    );
-  }else{
-    return (
-      <div id = "Typetext">
-        <div id = "subject">
-            <div id = "subjecthead">
-              <div id = "userInputSubject">{Current.subject}</div>
-              <div>{formatDate(Current.date)}</div>
-            </div>
-            <div className = "subjectButton"><button className = "hoverChange" onClick = {onEdit}>Edit</button></div>
-            <div className = "subjectButton"><button className = "hoverChange" onClick = {onDelete}>Delete</button></div>
-        </div>
-        <div className = "quill" >{Current.body.replace(/<[^>]*>?/gm, '')}</div>
-      </div>
-    );
-  }
+      <ReactQuill placeholder="Your Note Here" theme="snow" className = "quill" value={body} onChange={setBody}/>
+    </div>
+  );
 }
 
 export default Typetext;

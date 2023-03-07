@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
+import { useNavigate,useOutletContext } from "react-router-dom";
 import 'react-quill/dist/quill.snow.css';
 
-function Viewtext(props) {
-  var Current = props.infoList.find((info) => info.id === props.memoOn);
+function Viewtext() {
+  const[infoList,setInfoList] = useOutletContext()[0];
+  const[memoOn, setMemoOn] = useOutletContext()[1];
+
+  var Current = infoList.find((info) => info.id === memoOn);
+  var indexOf = infoList.findIndex((info) => info.id === memoOn);
+  const Navigate = useNavigate();
 
   const onDelete = () =>{
     const answer = window.confirm("Are you sure?");
-    console.log(props.memoOn)
     if (answer) {
-      props.setInfoList(props.infoList.filter(info=>info.id != props.memoOn));
-      props.setMemoOn("");
+      setInfoList(infoList.filter(info=>info.id != memoOn));
+      if(infoList.length == 1){
+        setMemoOn("");
+      }else if (indexOf == infoList.length-1){
+        setMemoOn(infoList[indexOf-1].id);
+      }else{
+        setMemoOn(infoList[indexOf+1].id);
+      }
+      localStorage.setItem('myLotionLocalStorage', JSON.stringify(infoList.filter(info=>info.id != memoOn)));
     }
+    
   }
 
   const options = {
@@ -31,8 +44,8 @@ const formatDate = (when) => {
 };
 
   const onEdit = () =>{
-    Current.edit = true;
-    setOpenEditor(true)
+    Navigate(`/${indexOf + 1}/Typetext`, { replace: true });
+
   }
 
 return (

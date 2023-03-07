@@ -1,10 +1,14 @@
 header{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgray;
   align-items: center;
   font-size: 2vh;
   display: flex;
   height: 6vh;
   min-height: 50px;
+}
+
+body{
+  overflow:hidden;
 }
 
 menu{
@@ -61,16 +65,13 @@ header h3{
   display: flex;
   flex-direction: row;
   align-items: top;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
   height:92vh;
 }
-.rowFlex div{
-  display:flex;
-}
+
 #flexChange{
   flex:0.3;
   max-width: 15%;
+  border-right: 1px solid lightgray;
 }
 
 #typeIn{
@@ -105,8 +106,8 @@ header h3{
   display: flex;
   flex-direction: row;
   align-items:center;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 #subject{
@@ -194,10 +195,11 @@ button{
 }
 
 #memos{
+  width: 100%;
   display:flex;
   flex-direction: column;
   overflow:scroll;
-  height:100%;
+  height:80vh;
 }
 
 .singleNote:hover{
@@ -205,16 +207,30 @@ button{
 }
 
 .singleNote{
-  height: 60px;
+  min-height: 55px;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  border-bottom: 1px solid lightgray;
+}
+
+.colouredMemo {
+  background-color: blueviolet;
+  min-height: 55px;
   width: 100%;
   display:flex;
   flex-direction:column;
 }
 
-.colouredMemo {
-  background-color: blueviolet;
-  height: 60px;
+.bodyShort{
+  display: inline-block;
   width: 100%;
-  display:flex;
-  flex-direction:column;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.centerIt{
+  width: 100%;
+  text-align: center;
 }

@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 function Header(props) {
    const menuBut = () =>{
      props.setNotesBar((prev) => !prev);
+     console.log(props.infoList == null);
    }
    
    
