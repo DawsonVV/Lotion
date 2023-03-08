@@ -44,7 +44,7 @@ const formatDate = (when) => {
 };
 
   const onEdit = () =>{
-    Navigate(`/${indexOf + 1}/Typetext`, { replace: true });
+    Navigate(`/notes/${indexOf + 1}/Typetext`, { replace: true });
 
   }
 

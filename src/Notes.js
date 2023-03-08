@@ -15,7 +15,7 @@ function Notes(props) {
       "date":""},...props.infoList]
     props.setInfoList(tempArr);
     props.setMemoOn(tempString);
-    Navigate(`/1/Typetext`, { replace: true });
+    Navigate(`/notes/1/Typetext`, { replace: true });
     localStorage.setItem('myLotionLocalStorage', JSON.stringify(tempArr));
   }
 
