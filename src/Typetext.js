@@ -50,7 +50,7 @@ const formatDate = (when) => {
     Current.subject = subject;
     Current.date = date;
     localStorage.setItem('myLotionLocalStorage', JSON.stringify(infoList));
-    Navigate(`/notes/${indexOf + 1}/ViewText`, { replace: true });
+    Navigate(`/notes/${indexOf + 1}/View`, { replace: true });
   }
 
   return (

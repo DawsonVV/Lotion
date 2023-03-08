@@ -10,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to = "/notes"/>}></Route>
         <Route path="/notes" element={<Layout />}>
-        <Route path="/notes/:id/Typetext" element={<Typetext />}></Route>
-        <Route path="/notes:id/ViewText" element={<ViewText />}></Route>
+        <Route path="/notes/:id/Edit" element={<Typetext />}></Route>
+        <Route path="/notes:id/View" element={<ViewText />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

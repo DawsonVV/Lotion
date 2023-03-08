@@ -23,7 +23,7 @@ const formatDate = (when) => {
 
   const memoClick = () =>{
     props.setMemoOn(props.id);
-    Navigate(`/notes/${indexOf + 1}/ViewText`, { replace: true });
+    Navigate(`/notes/${indexOf + 1}/View`, { replace: true });
   }
   var nameOfClass = "singleNote"
   if (props.id === props.memoOn){
