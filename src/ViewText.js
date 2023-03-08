@@ -52,13 +52,13 @@ return (
     <div id = "Typetext">
     <div id = "subject">
         <div id = "subjecthead">
-            <div id = "userInputSubject">{Current.subject}</div>
+            <div id = "userInputSubject" >{Current.subject}</div>
             <div>{formatDate(Current.date)}</div>
         </div>
-        <div className = "subjectButton"><button className = "hoverChange" onClick = {onEdit}>Edit</button></div>
-        <div className = "subjectButton"><button className = "hoverChange" onClick = {onDelete}>Delete</button></div>
+        <div className = "subjectButton"><button className = "hoverChange saveDelete" onClick = {onEdit}>Edit</button></div>
+        <div className = "subjectButton"><button className = "hoverChange saveDelete" onClick = {onDelete}>Delete</button></div>
     </div>
-    <div className = "quill" >{Current.body.replace(/<[^>]*>?/gm, '')}</div>
+    <div id ='viewBox' dangerouslySetInnerHTML={{ __html: Current.body }} className = "quill" ></div>
     </div>
 );
 }

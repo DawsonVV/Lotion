@@ -60,8 +60,8 @@ const formatDate = (when) => {
             <input id = "userInputSubject" type="text" value= {subject} onChange={(e) => setSubject(e.target.value)}/>
             <input id = "dateTime" type="datetime-local" value = {date} onChange={(e) => setDate(e.target.value)}/>
           </div>
-          <div className = "subjectButton"><button className = "hoverChange" onClick = {onSave}>Save</button></div>
-          <div className = "subjectButton"><button className = "hoverChange" onClick = {onDelete}>Delete</button></div>
+          <div className = "subjectButton"><button className = "hoverChange saveDelete" onClick = {onSave}>Save</button></div>
+          <div className = "subjectButton"><button className = "hoverChange saveDelete" onClick = {onDelete}>Delete</button></div>
       </div>
       <ReactQuill placeholder="Your Note Here" theme="snow" className = "quill" value={body} onChange={setBody}/>
     </div>

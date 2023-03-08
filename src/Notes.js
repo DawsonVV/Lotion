@@ -12,7 +12,7 @@ function Notes(props) {
       "id": tempString,
       "subject":"Untitled",
       "body":"",
-      "date":""},...props.infoList]
+      "date":new Date()},...props.infoList]
     props.setInfoList(tempArr);
     props.setMemoOn(tempString);
     Navigate(`/notes/1/Edit`, { replace: true });
